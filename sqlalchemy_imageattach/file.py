@@ -4,8 +4,12 @@
 The file-like types which wraps/proxies an other file objects.
 
 """
-from collections import Iterator
+try:
+    from collections.abc import Iterator # for python >3.9
+except ImportError:
+    from collections import Iterator  # for python <=3.8 
 import os
+
 
 __all__ = 'FileProxy', 'ReusableFileProxy', 'SeekableFileProxy'
 
